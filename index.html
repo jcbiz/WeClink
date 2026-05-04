@@ -2,663 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>weclink.club – Light, Social, Good Drinks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="weclink.club – a warm, social community for light drinkers to enjoy good wines, beers, and conversation in the San Jose area." />
-  <style>
-    :root {
-      --bg: #fff7f0;
-      --bg-alt: #ffe7d1;
-      --primary: #e26b3f;
-      --primary-dark: #c4542c;
-      --accent: #f2b880;
-      --text: #3b2b2b;
-      --muted: #7a6660;
-      --card-bg: #ffffff;
-      --border-radius: 10px;
-      --shadow: 0 10px 25px rgba(0,0,0,0.08);
-      --max-width: 1100px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 247, 240, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: var(--primary-dark);
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #ffe7d1, #e26b3f);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.15rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.2s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(226,107,63,0.35);
-      transition: background 0.15s ease, transform 0.1s ease;
-    }
-
-    .nav-cta:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .nav-toggle {
-      display: none;
-      border: none;
-      background: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      padding: 2.5rem 1rem 3rem;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      margin-bottom: 0.75rem;
-      color: #2b1d1a;
-    }
-
-    .hero-text h1 span {
-      color: var(--primary);
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .badge {
-      font-size: 0.8rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(226,107,63,0.08);
-      color: var(--primary-dark);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(226,107,63,0.35);
-      transition: background 0.15s ease, transform 0.1s ease;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.1);
-      background: rgba(255,255,255,0.7);
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--text);
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .btn-ghost:hover {
-      background: #fff;
-      border-color: rgba(0,0,0,0.2);
-    }
-
-    .hero-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.75rem;
-    }
-
-    .hero-visual {
-      position: relative;
-    }
-
-    .hero-card {
-      background: linear-gradient(145deg, #ffe7d1, #ffffff);
-      border-radius: 24px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #3b2520;
-    }
-
-    .hero-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .hero-card-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-card-tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.8);
-      color: var(--primary-dark);
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-
-    .hero-bubble {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #fff, #f2b880);
-      top: -20px;
-      right: -10px;
-      opacity: 0.9;
-    }
-
-    .hero-bubble-small {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #fff, #e26b3f);
-      bottom: -10px;
-      left: 10px;
-      opacity: 0.8;
-    }
-
-    /* Sections */
-    section {
-      margin-bottom: 3rem;
-    }
-
-    .section-header {
-      margin-bottom: 1.5rem;
-    }
-
-    .section-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--primary-dark);
-      margin-bottom: 0.25rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.4rem;
-      color: #2b1d1a;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-      color: #3b2520;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-    }
-
-    .pill {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.03);
-      color: var(--muted);
-    }
-
-    /* Membership form */
-    .membership-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.75rem;
-      align-items: flex-start;
-    }
-
-    form {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-    }
-
-    .form-row {
-      margin-bottom: 0.9rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.85rem;
-      margin-bottom: 0.25rem;
-      color: #4a3430;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.55rem 0.6rem;
-      border-radius: 7px;
-      border: 1px solid rgba(0,0,0,0.12);
-      font-size: 0.9rem;
-      font-family: inherit;
-      background: #fff;
-    }
-
-    textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .form-hint {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    .form-inline {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .form-inline .form-row {
-      flex: 1;
-      margin-bottom: 0;
-    }
-
-    .form-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .tagline-box {
-      background: linear-gradient(135deg, #ffe7d1, #ffd0a1);
-      border-radius: var(--border-radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-      font-size: 0.9rem;
-      color: #3b2520;
-    }
-
-    .tagline-box strong {
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .tagline-highlight {
-      display: inline-block;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.7);
-      font-size: 0.75rem;
-      margin-top: 0.4rem;
-    }
-
-    /* Events */
-    .events-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .event-list {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-      font-size: 0.9rem;
-    }
-
-    .event-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .event-item:last-child {
-      border-bottom: none;
-    }
-
-    .event-date {
-      font-size: 0.8rem;
-      color: var(--primary-dark);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .event-title {
-      font-weight: 600;
-      margin: 0.15rem 0;
-      color: #3b2520;
-    }
-
-    .event-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .event-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-    }
-
-    .events-cta {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.75rem;
-    }
-
-    /* Gallery */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #f2b880, #e26b3f);
-      height: 140px;
-      display: flex;
-      align-items: flex-end;
-      padding: 0.6rem 0.7rem;
-      color: #fff;
-      font-size: 0.8rem;
-      box-shadow: var(--shadow);
-    }
-
-    .gallery-item span {
-      z-index: 1;
-    }
-
-    .gallery-item::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 10%, rgba(255,255,255,0.4), transparent 55%);
-      opacity: 0.9;
-    }
-
-    /* Members-only */
-    .coming-soon {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .coming-soon strong {
-      color: #3b2520;
-    }
-
-    /* Contact / footer */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .contact-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-      font-size: 0.9rem;
-    }
-
-    .contact-row {
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid rgba(0,0,0,0.05);
-      padding: 1.25rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-      background: #fff3e7;
-    }
-
-    footer a {
-      color: var(--primary-dark);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero,
-      .membership-layout,
-      .events-layout,
-      .contact-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero {
-        padding-top: 1.75rem;
-      }
-
-      .hero-visual {
-        order: -1;
-      }
-
-      .grid-3,
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 56px;
-        right: 0;
-        background: rgba(255,247,240,0.98);
-        flex-direction: column;
-        padding: 0.75rem 1.25rem 1rem;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      main {
-        padding-inline: 1rem;
-      }
-
-      .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+  <title>weclink.club – Light drinks. Warm company. Real connection.</title>
+  <meta name="description" content="A warm, social club in the San Jose area for light drinkers who enjoy good wines, good beers, and good conversations." />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
+
+  <!-- Header -->
+  <header class="header">
     <div class="nav">
       <div class="logo">
         <div class="logo-mark">wc</div>
-        <div>weclink.club</div>
+        <span>weclink.club</span>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+
+      <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
       <nav class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#membership">Membership</a>
@@ -667,63 +28,48 @@
         <a href="#members">Members</a>
         <a href="#contact">Contact</a>
       </nav>
+
       <button class="nav-cta" onclick="scrollToSection('membership')">Join the first 20</button>
     </div>
   </header>
 
+  <!-- Hero -->
+  <section class="hero hero-centered" id="top">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>Light drinks. Warm company. Real connection.</h1>
+
+      <p class="hero-subtitle">
+        A small, welcoming social club in the San Jose area for people who enjoy good wines,
+        good beers, and good conversations.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge">San Jose · Bay Area</span>
+        <span class="badge">Light drinkers only</span>
+        <span class="badge">Respectful members</span>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToSection('membership')">Apply for membership</button>
+        <button class="btn-ghost" onclick="scrollToSection('events')">See upcoming events</button>
+      </div>
+
+      <p class="hero-note">Founding members: deep discounts for the first 20.</p>
+    </div>
+  </section>
+
   <main>
-    <!-- Hero -->
-    <section class="hero" id="top">
-      <div class="hero-text">
-        <h1>Light drinks, <span>warm company</span>, real connection.</h1>
-        <p class="hero-subtitle">
-          weclink.club is a small, friendly community in the San Jose area for people who enjoy
-          good wines, good beers, and good conversations—without the pressure to overdrink.
-        </p>
-        <div class="hero-badges">
-          <div class="badge">San Jose · Bay Area</div>
-          <div class="badge">Light drinkers only</div>
-          <div class="badge">Curated, respectful members</div>
-        </div>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="scrollToSection('membership')">Apply for membership</button>
-          <button class="btn-ghost" onclick="scrollToSection('events')">See upcoming events</button>
-        </div>
-        <p class="hero-note">
-          Early supporters: deep discounts for the first 20 founding members.
-        </p>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="hero-bubble"></div>
-          <div class="hero-bubble-small"></div>
-          <h2>Next tasting night · San Jose</h2>
-          <p>Small group, thoughtful pours, and space to actually talk.</p>
-          <div class="hero-card-row">
-            <span>Style</span>
-            <span>Wine & craft beer</span>
-          </div>
-          <div class="hero-card-row">
-            <span>Vibe</span>
-            <span>Relaxed · Respectful · Social</span>
-          </div>
-          <div class="hero-card-row">
-            <span>Group size</span>
-            <span>8–16 people</span>
-          </div>
-          <span class="hero-card-tag">Members & invited guests only</span>
-        </div>
-      </div>
-    </section>
 
     <!-- About -->
-    <section id="about">
+    <section id="about" class="section">
       <div class="section-header">
         <div class="section-kicker">About the club</div>
         <h2 class="section-title">A social club for light, responsible drinkers.</h2>
         <p class="section-subtitle">
           weclink.club is for people who enjoy the taste and ritual of good drinks—but care even more
-          about the people around the table. We keep things small, intentional, and welcoming.
+          about the people around the table.
         </p>
       </div>
 
@@ -732,44 +78,35 @@
           <h3>Why we exist</h3>
           <p>
             Bars can be loud and random. At weclink.club, you know you’re meeting people who are here
-            to connect, not to get wasted. Think of it as a living room with better curation.
+            to connect, not to overdrink.
           </p>
         </div>
+
         <div class="card">
           <h3>How it works</h3>
           <p>
             We host small gatherings once or twice a week in the San Jose area. Members get priority
-            access, early pricing, and can invite guests when space allows.
+            access and can invite guests when space allows.
           </p>
-          <div class="pill-row">
-            <span class="pill">Small groups</span>
-            <span class="pill">Curated events</span>
-            <span class="pill">Member-first</span>
-          </div>
         </div>
+
         <div class="card">
           <h3>Beyond the drinks</h3>
           <p>
             Each event can have a theme—travel, tech, books, photography, hobbies—so people connect
-            over shared interests, not just what’s in their glass.
+            over shared interests.
           </p>
-          <div class="pill-row">
-            <span class="pill">Topic nights</span>
-            <span class="pill">Hobby circles</span>
-            <span class="pill">Organic groups</span>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- Membership -->
-    <section id="membership">
+    <section id="membership" class="section">
       <div class="section-header">
         <div class="section-kicker">Membership</div>
         <h2 class="section-title">Founding members · first 20 get deep discounts.</h2>
         <p class="section-subtitle">
           We keep membership intentionally small at the beginning so we can build the right culture.
-          Tell us a bit about yourself, and we’ll follow up with details and next steps.
         </p>
       </div>
 
@@ -779,16 +116,19 @@
             <label for="name">Full name</label>
             <input id="name" name="name" type="text" required />
           </div>
+
           <div class="form-row">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" required />
             <div class="form-hint">We’ll only use this to contact you about the club.</div>
           </div>
+
           <div class="form-inline">
             <div class="form-row">
               <label for="city">City</label>
               <input id="city" name="city" type="text" placeholder="San Jose, Campbell, etc." />
             </div>
+
             <div class="form-row">
               <label for="ageRange">Age range</label>
               <select id="ageRange" name="ageRange" required>
@@ -800,46 +140,39 @@
               </select>
             </div>
           </div>
+
           <div class="form-row">
             <label for="drinkingStyle">How would you describe your drinking style?</label>
-            <textarea id="drinkingStyle" name="drinkingStyle" placeholder="For example: I enjoy 1–2 glasses, I’m more into tasting than drinking a lot, etc." required></textarea>
+            <textarea id="drinkingStyle" name="drinkingStyle" required></textarea>
           </div>
+
           <div class="form-row">
             <label for="interests">What are you interested in connecting over?</label>
-            <textarea id="interests" name="interests" placeholder="Tech, travel, books, photography, food, startups, etc."></textarea>
+            <textarea id="interests" name="interests"></textarea>
           </div>
-          <div class="form-row">
-            <label for="referral">How did you hear about weclink.club?</label>
-            <input id="referral" name="referral" type="text" />
-          </div>
+
           <div class="form-footer">
             <button class="btn-primary" type="submit">Apply as a founding member</button>
             <span id="formStatus"></span>
-            <span>We’ll review applications to keep the group respectful and responsible.</span>
           </div>
         </form>
 
         <div class="tagline-box">
           <strong>What founding members get:</strong>
-          <ul style="margin-left: 1.1rem; margin-top: 0.4rem;">
-            <li>Deeply discounted membership for the first year (first 20 members).</li>
+          <ul>
+            <li>Deeply discounted membership for the first year.</li>
             <li>Priority access to limited‑size events.</li>
-            <li>A say in how the club grows and what themes we host.</li>
+            <li>A say in how the club grows.</li>
           </ul>
-          <span class="tagline-highlight">We’re building this slowly and intentionally—quality over quantity.</span>
         </div>
       </div>
     </section>
 
     <!-- Events -->
-    <section id="events">
+    <section id="events" class="section">
       <div class="section-header">
         <div class="section-kicker">Events</div>
         <h2 class="section-title">Small, curated gatherings once or twice a week.</h2>
-        <p class="section-subtitle">
-          We’ll start with simple, cozy events in the San Jose area—tasting nights, themed conversations,
-          and hobby‑focused meetups. As membership grows, we’ll expand locations and formats.
-        </p>
       </div>
 
       <div class="events-layout">
@@ -847,173 +180,114 @@
           <div class="event-item">
             <div class="event-date">Sample · Thursday evening</div>
             <div class="event-title">Intro Wine & Beer Social</div>
-            <div class="event-meta">San Jose · 8–12 people · Light pours only</div>
-            <div class="event-note">A relaxed evening to meet other founding members and set the tone for the club.</div>
+            <div class="event-meta">San Jose · 8–12 people</div>
           </div>
+
           <div class="event-item">
             <div class="event-date">Sample · Weekend afternoon</div>
             <div class="event-title">“Travel Stories” Tasting</div>
-            <div class="event-meta">Campbell / Willow Glen · 10–14 people</div>
-            <div class="event-note">Bring a story from a trip you loved. We’ll pair it with wines and beers from around the world.</div>
+            <div class="event-meta">Campbell / Willow Glen</div>
           </div>
+
           <div class="event-item">
             <div class="event-date">Sample · Weeknight</div>
             <div class="event-title">Hobby Night: Tech, Books & Side Projects</div>
             <div class="event-meta">San Jose · 8–10 people</div>
-            <div class="event-note">A quieter evening for people who like to talk about what they’re building or reading.</div>
           </div>
         </div>
 
-        <div>
-          <div class="card">
-            <h3>Future event calendar</h3>
-            <p>
-              As we grow, this section will become a live calendar where members can see upcoming events,
-              RSVP, and suggest new themes.
-            </p>
-            <p style="margin-top: 0.6rem;">
-              For now, we’ll share event details directly with approved members by email and in a private
-              members’ channel.
-            </p>
-          </div>
-          <p class="events-cta">
-            Want to be part of the first few gatherings? Apply for membership above and mention your
-            preferred days/times in the notes.
+        <div class="card">
+          <h3>Future event calendar</h3>
+          <p>
+            As we grow, this will become a live calendar where members can see upcoming events and RSVP.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Gallery -->
-    <section id="gallery">
+    <section id="gallery" class="section">
       <div class="section-header">
         <div class="section-kicker">Gallery</div>
         <h2 class="section-title">The vibe we’re going for.</h2>
-        <p class="section-subtitle">
-          These are placeholders for now—once events begin, we’ll feature real photos (with permission)
-          that reflect the actual feel of the club.
-        </p>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <span>Small table, 6–8 people, soft lighting, shared bottles.</span>
-        </div>
-        <div class="gallery-item">
-          <span>People mid‑conversation, not staring at their phones.</span>
-        </div>
-        <div class="gallery-item">
-          <span>Simple snacks, thoughtful pours, no rush.</span>
-        </div>
-        <div class="gallery-item">
-          <span>Topic nights: travel, books, photography, tech, food.</span>
-        </div>
-        <div class="gallery-item">
-          <span>Warm colors, cozy spaces, respectful energy.</span>
-        </div>
-        <div class="gallery-item">
-          <span>Members who care about people more than the alcohol.</span>
-        </div>
+        <div class="gallery-item"><span>Small table, warm lighting.</span></div>
+        <div class="gallery-item"><span>People mid‑conversation.</span></div>
+        <div class="gallery-item"><span>Simple snacks, thoughtful pours.</span></div>
+        <div class="gallery-item"><span>Topic nights: travel, books, tech.</span></div>
+        <div class="gallery-item"><span>Warm, cozy spaces.</span></div>
+        <div class="gallery-item"><span>Members who care about connection.</span></div>
       </div>
     </section>
 
-    <!-- Members-only area (future) -->
-    <section id="members">
+    <!-- Members-only -->
+    <section id="members" class="section">
       <div class="section-header">
         <div class="section-kicker">Members area</div>
         <h2 class="section-title">Private members‑only space (coming soon).</h2>
-        <p class="section-subtitle">
-          As the club grows, we’ll add a private area for members to see events, manage their membership,
-          and connect between gatherings.
-        </p>
       </div>
 
       <div class="coming-soon">
         <strong>Planned features:</strong>
-        <ul style="margin-left: 1.1rem; margin-top: 0.4rem;">
-          <li>Members‑only event calendar and RSVPs.</li>
-          <li>Profile and interest tags to help people connect.</li>
-          <li>Private announcements and early access to new locations.</li>
+        <ul>
+          <li>Members‑only event calendar</li>
+          <li>Profiles & interest tags</li>
+          <li>Private announcements</li>
         </ul>
-        <p style="margin-top: 0.6rem;">
-          For now, everything will be handled personally and via email. Joining early means you’ll help
-          shape how this members’ area works.
-        </p>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact">
+    <section id="contact" class="section">
       <div class="section-header">
         <div class="section-kicker">Contact</div>
         <h2 class="section-title">Have questions or ideas?</h2>
-        <p class="section-subtitle">
-          If you’re curious, cautious, or just want to understand how this will work before applying,
-          feel free to reach out.
-        </p>
       </div>
 
       <div class="contact-layout">
         <div class="contact-card">
-          <div class="contact-row">
-            <div class="contact-label">Email</div>
-            <div><a href="mailto:hello@weclink.club">hello@weclink.club</a></div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-label">Location</div>
-            <div>San Jose · Campbell · South Bay</div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-label">Social (future)</div>
-            <div>Instagram · Meetup · Private members’ chat</div>
-          </div>
-          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted);">
-            We’ll start small and grow slowly. If you’re reading this early, you’re exactly the kind of
-            person we’d love to hear from.
-          </p>
+          <div class="contact-label">Email</div>
+          <div><a href="mailto:info@weclink.club">info@weclink.club</a></div>
+
+          <div class="contact-label">Location</div>
+          <div>San Jose · Campbell · South Bay</div>
         </div>
 
         <div class="contact-card">
           <h3>Important note about alcohol</h3>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem;">
-            weclink.club is designed for responsible adults (21+) who drink lightly and respectfully.
-            We’ll follow local laws and venue rules, and we reserve the right to decline or cancel
-            membership for anyone who doesn’t align with that spirit.
+          <p>
+            weclink.club is for responsible adults (21+) who drink lightly and respectfully.
           </p>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer>
-    <div>© <span id="year"></span> weclink.club · All rights reserved.</div>
-    <div style="margin-top: 0.25rem;">
-      This site is for informational purposes only and does not guarantee membership or event access.
-    </div>
+  <footer class="footer">
+    © <span id="year"></span> weclink.club · All rights reserved.
   </footer>
 
   <script>
     function toggleNav() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('open');
+      document.getElementById('navLinks').classList.toggle('open');
     }
 
     function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
     function handleMembershipSubmit(event) {
       event.preventDefault();
-      const status = document.getElementById('formStatus');
-      status.style.color = '#e26b3f';
-      status.textContent = 'Thank you! This form is a placeholder. Please connect via email while we set up the backend.';
+      document.getElementById('formStatus').textContent =
+        'Thank you! This form is a placeholder. Please email info@weclink.club.';
       event.target.reset();
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
